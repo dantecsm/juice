@@ -109,8 +109,7 @@
                  [0 ''=]
                  [1 ''+=]
                  [2 ''-=]
-                 [3 ''!=]
-                 [_ ''=])])
+                 [_ ''!=])])
        `(var* ,c ,s ,v)))))
 
 (define (lex-num0 c)        `(num ,(- (char->integer c) #x23)))
@@ -258,8 +257,7 @@
                    (let ([o (match s
                               [''+= 'inc-var]
                               [''-= 'dec-var]
-                              [''=  'set-var]
-                              [''!= 'rev-var])])
+                              [''=  'set-var])])
                      (return `(,o ,c ,v))))))
 
 (define reg? (:% (l <- reg*)
