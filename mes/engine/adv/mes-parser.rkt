@@ -149,7 +149,7 @@
 (define cSJIS2+ (:% (c1 <- (char-between #\uEB #\uEF))
                     (c2 <- (<or> (char-between #\u40 #\u7E)
                                  (char-between #\u80 #\uFC)))
-                    (return (lex-chr-sjis2+ c1 c2))))
+                    (return (lex-chr-sjis2 c1 c2))))
 
 ;; lexer
 
@@ -209,7 +209,7 @@
 (define CHR2+ (:% (c1 <- (char-between #\uEB #\uEF))
                   (c2 <- (<or> (char-between #\u40 #\u7E)
                                (char-between #\u80 #\uFC)))
-                  (return (lex-chr2+ c1 c2))))
+                  (return (lex-chr2 c1 c2))))
 
 (define CHR-LBEG (try (:- (char #\u81) (char #\u6F))))
 (define CHR-LEND (try (:- (char #\u81) (char #\u70))))

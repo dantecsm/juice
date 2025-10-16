@@ -25,3 +25,7 @@
 (fontwidth 2)
 (char-space #\u3000)
 (char-newline #\％)
+
+(charset! #xEC4A #\💦)
+(charset! #xEB96 #\💢)
+(charset! #xEB98 #\💓)
