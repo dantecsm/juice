@@ -111,6 +111,7 @@
 (define (mes:set-var c v) (mes:var* c '=  v))
 (define (mes:inc-var c v) (mes:var* c '+= v))
 (define (mes:dec-var c v) (mes:var* c '-= v))
+(define (mes:set-var2 c v) (mes:var* c '!= v))
 
 ;TODO: macro implementation
 (define mes:A #\A)

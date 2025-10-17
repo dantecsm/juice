@@ -257,7 +257,10 @@
                    (let ([o (match s
                               [''+= 'inc-var]
                               [''-= 'dec-var]
-                              [''=  'set-var])])
+                              [''=  'set-var]
+                              [''!=  'set-var2])])  ; in cond blocks, '!=' indeed means 'not equal'.
+                                                    ; but in op, it acts as 'set-var'.
+                                                    ; named to 'set-var2' to avoid decompile errors and inconsistency.
                      (return `(,o ,c ,v))))))
 
 (define reg? (:% (l <- reg*)
@@ -381,8 +384,8 @@
                           (if x? op-decrypt $err))))
 
 (define op-cmd  (:- CMD params))
-
 (define op (<or> reg! var!
+
                  op-cmd*
                  op-cmd))
 
