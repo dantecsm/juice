@@ -8,6 +8,7 @@
 (require "bmp-clear.rkt")
 (require "bmp-fnt.rkt")
 (require "bmp-korean.rkt")
+(require "bmp-chinese.rkt")
 
 (provide out
          new
@@ -26,4 +27,7 @@
          draw-korean
          draw-korean*
          draw-korean/string
+         draw-chinese
+         draw-chinese*
+         draw-chinese/string
          save)
