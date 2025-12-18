@@ -59,7 +59,10 @@
 ;;   `(var* ,name ,value ,mode))
 
 (define (integer->var i)
-  `(var ,(integer->char (+ (char->integer #\A) i))))
+  `(var ,(cond
+           [(<= 0 i 25) (integer->char (+ (char->integer #\A) i))]  ; A-Z for 0-25
+           [(= i 26) #\a]  ; a for 26
+           [else (error (format "unsupported variable index: ~a" i))])))
 
 (define (lex-var c1 c2)
   (define l (list->bytes (map char->integer `(,c1 ,c2))))

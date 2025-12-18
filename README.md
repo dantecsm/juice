@@ -1,12 +1,13 @@
 This repo is forked from [tomyun/juice](https://github.com/tomyun/juice)
 
 ## Difference
-- Fixed an inconsistency error when recompiling some ADV MES files (e.g., X-Girls, Pia Carrot).
-- <details><summary>Support Chinese charset</summary>
+- Fixed an inconsistency error when recompiling some ADV MES files (e.g. **X-Girls**, **Pia Carrot**).
+- <details><summary>Support Chinese charset.</summary>
 
     * 反编译和编译时**不要**(也不用)指定 `--charset chinese`，只在翻译完 rkt 文件后，将每个文件的第一处 `(charset "pc98")` 改为 `(charset "chinese")` 即可。编译指令会自动找到 `_charset_chinese.rkt` 文件并用它编码中文。
     * 中文 charset 配套的码表文件为 `font/font-chinese.bmp`。如果要自己生成，生成前先安装 `font/unifont-Medium.ttf`。生成后 bmp 要另存为 2 bit 位图（比如用 win 的画图打开 bmp，然后另存为 bmp，保存类型选择"单色位图"）
   </details>
+- Fixed **Dengeki Nurse** compile error.
 
 ## Note
 Decompile rules for `--engine ADV --extraop`

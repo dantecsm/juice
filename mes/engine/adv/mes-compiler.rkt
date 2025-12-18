@@ -66,7 +66,10 @@
 ;; var
 
 (define (var->integer c)
-  (- (char->integer c) (char->integer #\A)))
+  (cond
+    [(char<=? #\A c #\Z) (- (char->integer c) (char->integer #\A))]  ; A-Z = 0-25
+    [(char=? c #\a) 26]  ; a = 26
+    [else (error (format "unsupported variable: ~a" c))]))
 
 (define (mes:var1* c s v)
   (define b
@@ -140,12 +143,13 @@
 (define mes:X #\X)
 (define mes:Y #\Y)
 (define mes:Z #\Z)
+(define mes:a #\a)  ; variable 26
 
 (define (mes:var c) c)
 
 (define (var? v)
  (match v
-  [(? char? c) (char<=? #\A c #\Z)]
+  [(? char? c) (or (char<=? #\A c #\Z) (char=? c #\a))]
   [_           #f]))
 
 ;; conds
